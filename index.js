@@ -3,9 +3,10 @@ const http = require('http');
 //Brazil mocker
 const { Form } = require('brazil-mocker');
 
-let nome = Form.names.firstName.generate('random', true);
+let nome;
 
 http.createServer((req, res) => {
+    nome = Form.names.firstName.generate('random', true);
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8'});
     res.end('Olá, ' + nome);
 }).listen(3000);
